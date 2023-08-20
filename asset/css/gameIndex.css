@@ -1,0 +1,49 @@
+.mouse-follower {
+	width: 15px;
+	height: 15px;
+	opacity: .6;
+	border-radius: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+
+@media (max-width: 768px) {
+	.mouse-follower {
+		display: none;
+	}
+}
+
+.arrow {
+	z-index: 9;
+	width: 25px;
+	height: 25px;
+	transform: translate(100%, -20%);
+	opacity: 0.3;
+	pointer-events: none;
+}
+
+.cercle {
+	filter: blur(0.5px);
+	z-index: 10;
+	cursor: none;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	opacity: .6;
+	animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+	0%,
+	100% {
+		transform: rotate(0deg);
+	}
+
+	50% {
+		transform: scale(1.2) rotate(360deg);
+	}
+}

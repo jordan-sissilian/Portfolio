@@ -1,0 +1,22 @@
+html {
+	background-color: #141414;
+	font-family: 'Tilt Warp', cursive;
+	margin: 0;
+	overflow-y: hidden;
+	overflow-x: hidden;
+	cursor: none
+}
+
+body {
+	-webkit-user-select: none;
+	/* Chrome, Safari, Opera */
+	-moz-user-select: none;
+	/* Firefox */
+	-ms-user-select: none;
+	/* Internet Explorer/Edge */
+	user-select: none;
+}
+
+.floue {
+	filter: blur(3px);
+}

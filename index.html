@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Jordan Sissilian ✌🏼</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link type="image/png" sizes="32x32" rel="favicon" href="asset/img/icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Expletus+Sans&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="asset/css/style.css">
+  <link rel="stylesheet" href="asset/css/navbar.css">
+  <link rel="stylesheet" href="asset/css/gameIndex.css">
+  <link rel="stylesheet" href="asset/css/loadingPage.css">
+  <link rel="stylesheet" id="styleL" href="asset/css/page/homeStyle.css">
+
+  <script src="asset/js/loadingPage.js" defer></script>
+  <script src="asset/js/gameIndex.js" defer></script>
+  <script src="asset/js/pi.js"></script>
+</head>
+
+<body>
+
+  <div class="loading-container">
+    <div class="bubble-container">
+      <div class="bubble b1"></div>
+      <div class="bubble b2"></div>
+      <div class="bubble b3"></div>
+      <div class="bubble b2"></div>
+      <div class="bubble b1"></div>
+    </div>
+  </div>
+
+  <!-- navbar -->
+  <div>
+    <div class="mobile-nav-toggle" id="mobileNav">
+      <span>
+        <p>MENU</p>
+      </span>
+    </div>
+    <script src="asset/js/navbar.js" defer></script>
+    <nav>
+      <a class="home" alt="home" id="navActive" >Accueil</a>
+      <a class="aboutMe" alt="aboutMe"          >À propos de moi</a>
+      <a class="project" alt="project"          >Projets</a>
+      <a class="contact" alt="contact"          >Contact</a>
+    </nav>
+  </div>
+
+  <!-- reseaux
+  <div class="reseaux">
+    <div>
+      github
+    </div>
+    <div>
+      linkedin
+    </div>
+  </div>
+  -->
+
+  <!-- home page -->
+  <div class="websiteHome" id="Home" style="display: none;">
+    <div class="main floue">
+      <h1>Salut, moi c'est <span class="spanName" style="color: rgb(255, 255, 0);">Jordan</span>,
+        <br><span style="color: rgba(255, 0, 212, 0.611);">{</span>Développer<span
+          style="color: rgba(255, 0, 212, 0.611);">}</span> passionné.
+      </h1>
+      <p>
+        Je transforme des idées en code, créant des expériences numériques uniques.<br>
+        Découvrez mon travail et explorez les projets qui prennent vie à travers mes lignes de code,
+      </p>
+    </div>
+  </div>
+
+  <!-- About page -->
+  <div class="websiteAboutMe" id="AboutMe" style="display: none;">
+    <div class="main">
+      <h1><span class="spanName">About page</span></h1>
+    </div>
+  </div>
+
+  <!-- Project page -->
+  <div class="websiteProject" id="Project" style="display: none;">
+    <div class="main">
+      <h1><span class="spanName">Project page</span></h1>
+    </div>
+  </div>
+
+  <!-- Contact page -->
+  <div class="websiteContact" id="Contact" style="display: none;">
+    <div class="main">
+      <h1><span class="spanName">Contact page</span></h1>
+    </div>
+  </div>
+</body>
+
+</html>

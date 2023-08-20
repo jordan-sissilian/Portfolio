@@ -1,0 +1,35 @@
+.websiteHome {
+	height: 100%;
+	width: 100%;
+}
+
+.main {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	z-index: 1;
+	transition: filter 0.5s ease-in-out;
+}
+
+h1 {
+	font-size: 3.5em;
+	color: #ffffff
+}
+
+@media (max-width: 768px) {
+	h1 {
+		font-size: 2.5em;
+		color: #ffffff
+	}
+
+}
+
+p {
+	color: #c7c7c7
+}
+
+#spanName {
+	transition: color .5s ease-in-out
+}
