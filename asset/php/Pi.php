@@ -1,29 +1,36 @@
 <?php
-
-function get()
-{
-    if (!empty($_SERVER['HTTP_CLIENT_IP']))
-        $ip = $_SERVER['HTTP_CLIENT_IP'];
-    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
-        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    else
-        $ip = $_SERVER['REMOTE_ADDR'];
-
-    return $ip;
+//Log de connexion au site public /log.txt
+header('Content-Type: text/html; charset=utf-8');
+function getClientIP() {
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        return $_SERVER['HTTP_CLIENT_IP'];
+    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        return $_SERVER['HTTP_X_FORWARDED_FOR'];
+    } else {
+        return $_SERVER['REMOTE_ADDR'];
+    }
 }
 
 $timestamp = date('H:i:s d-m-Y');
-$ip = get();
+$ip = getClientIP();
 $userAgent = $_SERVER['HTTP_USER_AGENT'];
 $xml = simplexml_load_file("http://www.geoplugin.net/xml.gp?ip=" . $ip);
 
-$logMessage = "\n== [$timestamp] ==\n\n";
-$logMessage .= "\tUser-Agent: $userAgent\n\n";
-$logMessage .= "\tIP Address: $ip\n\n";
-$logMessage .= "\t\t latitude: " . $xml->geoplugin_latitude . ", longitude: " . $xml->geoplugin_longitude . "\n\n";
-$logMessage .= "\t\t " . mb_convert_encoding($xml->geoplugin_continentName, "ISO-8859-1", "UTF-8") . ", " . mb_convert_encoding($xml->geoplugin_countryNam, "ISO-8859-1", "UTF-8") . ", " . mb_convert_encoding($xml->geoplugin_regionCode, "ISO-8859-1", "UTF-8") . "\n";
-$logMessage .= "\t\t " . mb_convert_encoding($xml->geoplugin_regionName, "ISO-8859-1", "UTF-8") . ", " . mb_convert_encoding($xml->geoplugin_city, "ISO-8859-1", "UTF-8") . "\n";
-$logMessage .= "\n==\n";
+// Utiliser mb_convert_encoding pour gérer correctement les caractères UTF-8
+$logMessage = "
+== [$timestamp] ==
+
+User-Agent: $userAgent
+
+IP Address: $ip
+
+latitude: {$xml->geoplugin_latitude}, longitude: {$xml->geoplugin_longitude}
+
+" . mb_convert_encoding($xml->geoplugin_continentName, "UTF-8", "ISO-8859-1") . ", " . mb_convert_encoding($xml->geoplugin_countryName, "UTF-8", "ISO-8859-1") . ", " . mb_convert_encoding($xml->geoplugin_regionCode, "UTF-8", "ISO-8859-1") . "
+" . mb_convert_encoding($xml->geoplugin_regionName, "UTF-8", "ISO-8859-1") . ", " . mb_convert_encoding($xml->geoplugin_city, "UTF-8", "ISO-8859-1") . "
+
+==
+";
 
 $logFile = "../../log.txt";
 file_put_contents($logFile, $logMessage, FILE_APPEND | FILE_TEXT);

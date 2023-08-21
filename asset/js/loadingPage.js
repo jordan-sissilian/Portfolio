@@ -17,7 +17,7 @@ setTimeout(function () {
 //afficher le text
 setTimeout(function () {
 	document.querySelector(".main").classList.remove("floue");
-}, 2500);
+}, 2100);
 
 document.addEventListener("contextmenu", function (e) {
 	e.preventDefault();

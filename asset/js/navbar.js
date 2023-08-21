@@ -40,6 +40,34 @@ if (window.innerWidth < 768) {
 	});
 }
 
+// Fonction pour gérer le choix de lien
+function linkChoose(link) {
+	const navActive = document.getElementById("navActive");
+	if (navActive.getAttribute("alt") === link)
+		return;
+	// Mise à jour de la feuille de style
+	const linkCss = `asset/css/page/${link}Style.css`;
+	const styleLink = document.getElementById("styleL");
+	styleLink.setAttribute("href", linkCss);
+	// Affichage de la section correspondante et gestion de l'élément de navigation actif
+	const links = link.charAt(0).toUpperCase() + link.slice(1);
+	const sections = ['Home', 'AboutMe', 'Project', 'Contact'];
+	sections.forEach(section => {
+		const displayStyle = section === links ? 'block' : 'none';
+		document.querySelector(`.website${section}`).style.display = displayStyle;
+	});
+	const exActiv = navActive.getAttribute("alt");
+	navActive.removeAttribute("id");
+	const navHover = document.querySelector(`.${link}`);
+	navHover.setAttribute("id", "navActive");
+
+	const navb = document.querySelector("nav");
+	if (link === "aboutMe" || link === "project" ) {
+		navb.style.transform = 'translateY(-70px)';
+	} else {
+		navb.style.transform = 'translateY(0px)';
+	}
+}
 // Gestion des liens de navigation dans le menu principal
 const navHome = document.querySelector(".home");
 navHome.addEventListener("click", function () {
@@ -57,24 +85,3 @@ const navContact = document.querySelector(".contact");
 navContact.addEventListener("click", function () {
 	linkChoose("contact");
 });
-
-// Fonction pour gérer le choix de lien
-function linkChoose(link) {
-	const navActive = document.getElementById("navActive");
-	if (navActive.getAttribute("alt") === link)
-		return;
-	// Mise à jour de la feuille de style
-	const linkCss = `asset/css/page/${link}Style.css`;
-	const styleLink = document.getElementById("styleL");
-	styleLink.setAttribute("href", linkCss);
-	// Affichage de la section correspondante et gestion de l'élément de navigation actif
-	const links = link.charAt(0).toUpperCase() + link.slice(1);
-	const sections = ['Home', 'AboutMe', 'Project', 'Contact'];
-	sections.forEach(section => {
-		const displayStyle = section === links ? 'block' : 'none';
-		document.querySelector(`.website${section}`).style.display = displayStyle;
-	});
-	navActive.removeAttribute("id");
-	const navHover = document.querySelector(`.${link}`);
-	navHover.setAttribute("id", "navActive");
-}

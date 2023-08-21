@@ -3,8 +3,12 @@ nav {
 	position: relative;
 	top: 8rem;
 	text-align: center;
-	transform: translateY(-10000%);
+	transform: translateY(-150rem);
 	transition: transform .7s ease-in-out;
+}
+
+.navAbout {
+	transform: translateY(-30px);
 }
 
 nav a {

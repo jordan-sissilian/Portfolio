@@ -19,77 +19,38 @@
 	height: 40px;
 	margin: 10px;
 	border-radius: 50%;
-	animation: scaleUp 2s infinite ease-in-out alternate, colorChange 2s infinite linear;
+	animation: scaleUp 1.8s ease-in-out alternate, colorChange 2s infinite linear;
 }
 
 .b1 {
-	animation-delay: 0.1s;
+	animation-delay: 0.3s;
 }
 
 .b2 {
-	animation-delay: 0.18s;
+	animation-delay: 0.4s;
 }
 
 .b3 {
-	animation-delay: 0.27s;
-}
-
-.b4 {
-	animation-delay: 0.36s;
+	animation-delay: 0.5s;
 }
 
 @keyframes scaleUp {
 
-	0%,
-	100% {
-		transform: scale(1);
+	0%, 100% {
+		transform: scale(0);
 	}
 
-	50% {
+	30% {
 		transform: scale(1.2);
 	}
 }
 
 @keyframes colorChange {
 
-	0%,
-	100% {
-		background-color: rgba(20, 20, 20, 0.6);
+	0% {
+		background-color: rgb(0, 255, 145);
 	}
-
-	10% {
-		background-color: #FF6B6B;
-	}
-
-	20% {
-		background-color: #6B66FF;
-	}
-
-	30% {
-		background-color: #66FFA6;
-	}
-
-	40% {
-		background-color: #FFD700;
-	}
-
-	50% {
-		background-color: #FF8C00;
-	}
-
-	60% {
-		background-color: #FF1493;
-	}
-
 	70% {
-		background-color: #00CED1;
-	}
-
-	80% {
-		background-color: #9ACD32;
-	}
-
-	90% {
-		background-color: #800080;
+		background-color: #ff00ff;
 	}
 }

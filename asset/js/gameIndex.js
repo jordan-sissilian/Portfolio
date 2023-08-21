@@ -1,10 +1,12 @@
-function couleurAleatoire() {
-	const r = Math.floor(Math.random() * 256);
-	const g = Math.floor(Math.random() * 256);
-	const b = Math.floor(Math.random() * 256);
+function getRandomColor() {
+	const randomValue = () => Math.floor(Math.random() * 256);
+	const r = randomValue();
+	const g = randomValue();
+	const b = randomValue();
 
-	return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
+	return `rgb(${r}, ${g}, ${b})`;
 }
+
 // Fonction pour gérer le clic sur le bouton "cercle"
 function handleClick() {
 	// Supprimer le bouton "cercle" existant
@@ -20,7 +22,7 @@ function handleClick() {
 	cercleButtonNew.style.top = randomNumberY + 'px';
 	cercleButtonNew.style.left = randomNumberX + 'px';
 
-	const couleurHex = couleurAleatoire();
+	const couleurHex = getRandomColor();
 
 	// Appliquer la couleur de fond et l'opacité au nouveau bouton "cercle"
 	cercleButtonNew.style.backgroundColor = couleurHex;
@@ -84,7 +86,7 @@ setTimeout(() => {
 	buttonCercle.onclick = handleClick; // Associer la fonction de gestion du clic
 	buttonCercle.style.left = `${window.innerWidth - 100}px`;
 	buttonCercle.style.top = `${window.innerHeight - 100}px`;
-	const colors = couleurAleatoire();
+	const colors = getRandomColor();
 	buttonCercle.style.backgroundColor = colors;
 	mouseFollower.style.backgroundColor = colors;
 	buttonCercle.addEventListener('mouseover', () => { arrow.style.display = 'none'; });
