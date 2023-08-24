@@ -1,4 +1,4 @@
-const numStars = 50; // Nombre d'étoiles
+const numStars = 100; // Nombre d'étoiles
 
 const starsContainer = document.querySelector('.stars');
 

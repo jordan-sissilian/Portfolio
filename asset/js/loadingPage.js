@@ -8,6 +8,9 @@ setTimeout(function () {
 	loadingContainer.remove();
 	websiteContent.style.display = "block";
 	document.querySelector('.stars').style.display = 'flex';
+	document.querySelectorAll('.spanName').forEach(element => {
+		element.style.color = 'cyan';
+	});
 }, 2000);
 
 //afficher la navbar

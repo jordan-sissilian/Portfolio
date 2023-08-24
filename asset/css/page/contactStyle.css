@@ -1,3 +1,4 @@
+
 .websiteContact {
 	height: 100%;
 	width: 100%;
@@ -28,6 +29,7 @@
   }
   
   .link a {
+	cursor: none;
 	margin: 5px 0;
 	text-decoration: none;
 	color: #333;

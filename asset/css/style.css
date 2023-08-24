@@ -1,8 +1,11 @@
 html {
 	background-color: #141414;
 	background-size: cover;
+	background-repeat: no-repeat;
 	font-family: 'Tilt Warp', cursive;
 	margin: 0;
+	overflow-y: hidden;
+	overflow-x: hidden;
 	cursor: none;
 	height: 100%;
 	width: 100%;

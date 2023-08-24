@@ -57,34 +57,47 @@ function linkChoose(link) {
 		document.querySelector(`.website${section}`).style.display = displayStyle;
 	});
 	const exAlt = navActive.getAttribute("alt");
-    const exActiv = document.querySelector(`.${exAlt}`);
+	const exActiv = document.querySelector(`.${exAlt}`);
 	exActiv.style.color = '';
 	navActive.removeAttribute("id");
 	const navHover = document.querySelector(`.${link}`);
 	navHover.setAttribute("id", "navActive");
 	navHover.style.color = 'white';
-	if (!(window.innerWidth < 768)) {
-		const navb = document.querySelector("nav");
-		if (link === "aboutMe" || link === "project" )
-			navb.style.transform = 'translateY(-70px)';
-		else
-			navb.style.transform = 'translateY(0px)';
-	}
 }
+
+
+function ajout() {
+	const navb = document.querySelector("nav");
+	if (!(window.innerWidth < 768))
+		navb.style.transform = 'translateY(0px)';
+	document.querySelector("html").style.backgroundImage = "url('/asset/img/fond.jpeg')";
+	document.querySelector(".stars").style.display = "flex";
+};
+function enlev() {
+	const navb = document.querySelector("nav");
+	if (!(window.innerWidth < 768))
+		navb.style.transform = 'translateY(-70px)';
+	document.querySelector("html").style.backgroundImage = "";
+	document.querySelector(".stars").style.display = "none";
+};
 // Gestion des liens de navigation dans le menu principal
 const navHome = document.querySelector(".home");
 navHome.addEventListener("click", function () {
 	linkChoose("home");
+	ajout();
 });
 const navAboutMe = document.querySelector(".aboutMe");
 navAboutMe.addEventListener("click", function () {
 	linkChoose("aboutMe");
+	enlev();
 });
 const navProject = document.querySelector(".project");
 navProject.addEventListener("click", function () {
 	linkChoose("project");
+	enlev();
 });
 const navContact = document.querySelector(".contact");
 navContact.addEventListener("click", function () {
 	linkChoose("contact");
+	ajout();
 });
