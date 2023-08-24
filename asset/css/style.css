@@ -1,10 +1,11 @@
 html {
 	background-color: #141414;
+	background-size: cover;
 	font-family: 'Tilt Warp', cursive;
 	margin: 0;
-	overflow-y: hidden;
-	overflow-x: hidden;
-	cursor: none
+	cursor: none;
+	height: 100%;
+	width: 100%;
 }
 
 body {

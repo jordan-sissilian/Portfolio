@@ -7,6 +7,7 @@ const websiteContent = document.querySelector(".websiteHome");
 setTimeout(function () {
 	loadingContainer.remove();
 	websiteContent.style.display = "block";
+	document.querySelector('.stars').style.display = 'flex';
 }, 2000);
 
 //afficher la navbar
@@ -22,3 +23,7 @@ setTimeout(function () {
 document.addEventListener("contextmenu", function (e) {
 	e.preventDefault();
 });
+
+setTimeout(function () {
+	document.querySelector('html').style.backgroundImage = "url('/asset/img/fond.jpeg')";
+}, 1700);

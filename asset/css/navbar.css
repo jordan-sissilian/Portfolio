@@ -4,7 +4,7 @@ nav {
 	top: 8rem;
 	text-align: center;
 	transform: translateY(-150rem);
-	transition: transform .7s ease-in-out;
+	transition: transform 1s ease-in-out;
 }
 
 .navAbout {
@@ -18,6 +18,7 @@ nav a {
 	text-decoration: none;
 	cursor: none;
 	text-transform: capitalize;
+	transition: color 0.3s;
 }
 
 nav a:hover {

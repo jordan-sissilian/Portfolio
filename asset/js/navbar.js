@@ -56,16 +56,19 @@ function linkChoose(link) {
 		const displayStyle = section === links ? 'block' : 'none';
 		document.querySelector(`.website${section}`).style.display = displayStyle;
 	});
-	const exActiv = navActive.getAttribute("alt");
+	const exAlt = navActive.getAttribute("alt");
+    const exActiv = document.querySelector(`.${exAlt}`);
+	exActiv.style.color = '';
 	navActive.removeAttribute("id");
 	const navHover = document.querySelector(`.${link}`);
 	navHover.setAttribute("id", "navActive");
-
-	const navb = document.querySelector("nav");
-	if (link === "aboutMe" || link === "project" ) {
-		navb.style.transform = 'translateY(-70px)';
-	} else {
-		navb.style.transform = 'translateY(0px)';
+	navHover.style.color = 'white';
+	if (!(window.innerWidth < 768)) {
+		const navb = document.querySelector("nav");
+		if (link === "aboutMe" || link === "project" )
+			navb.style.transform = 'translateY(-70px)';
+		else
+			navb.style.transform = 'translateY(0px)';
 	}
 }
 // Gestion des liens de navigation dans le menu principal

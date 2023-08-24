@@ -1,12 +1,16 @@
 function getRandomColor() {
-	const randomValue = () => Math.floor(Math.random() * 256);
-	const r = randomValue();
-	const g = randomValue();
-	const b = randomValue();
+	const colors = [
+		'rgb(200, 50, 255)',    // Violet vif
+		'rgb(0, 150, 255)',     // Bleu vif
+		'rgb(255, 80, 80)',     // Rouge vif
+		'rgb(0, 255, 100)',     // Vert vif
+		'rgb(255, 200, 0)',     // Jaune vif
+		'rgb(255, 100, 0)'      // Orange vif
+	  ];	  
 
-	return `rgb(${r}, ${g}, ${b})`;
+	const randomIndex = Math.floor(Math.random() * colors.length);
+	return colors[randomIndex];
 }
-
 // Fonction pour gérer le clic sur le bouton "cercle"
 function handleClick() {
 	// Supprimer le bouton "cercle" existant
