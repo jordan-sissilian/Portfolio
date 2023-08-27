@@ -17,7 +17,8 @@ $userAgent = $_SERVER['HTTP_USER_AGENT'];
 $xml = simplexml_load_file("http://www.geoplugin.net/xml.gp?ip=" . $ip);
 
 // Utiliser mb_convert_encoding pour gérer correctement les caractères UTF-8
-$logMessage = "
+
+/*$logMessage = "
 == [$timestamp] ==
 
 User-Agent: $userAgent
@@ -30,7 +31,9 @@ latitude: {$xml->geoplugin_latitude}, longitude: {$xml->geoplugin_longitude}
 " . mb_convert_encoding($xml->geoplugin_regionName, "UTF-8", "ISO-8859-1") . ", " . mb_convert_encoding($xml->geoplugin_city, "UTF-8", "ISO-8859-1") . "
 
 ==
-";
+";*/
+
+$logMessage = "log..";
 
 $logFile = "../../log.txt";
 file_put_contents($logFile, $logMessage, FILE_APPEND | FILE_TEXT);

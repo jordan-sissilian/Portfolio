@@ -12,6 +12,8 @@ html {
 }
 
 body {
+	height: 100%;
+	width: 100%;
 	-webkit-user-select: none;
 	/* Chrome, Safari, Opera */
 	-moz-user-select: none;
@@ -23,4 +25,21 @@ body {
 
 .floue {
 	filter: blur(3px);
+}
+
+.mouse-follower {
+	width: 15px;
+	height: 15px;
+	opacity: .6;
+	border-radius: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+	background-color: cyan;
+}
+
+@media (max-width: 768px) {
+	.mouse-follower {
+		display: none;
+	}
 }
