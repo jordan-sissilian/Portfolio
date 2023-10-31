@@ -11,9 +11,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
 
   <script src="../3d/res/alphabetPixelTab.js"></script>
-  <script>
-    window.innerWidth <= 768 && (window.location.href = "../res/JORDAN_SISSILIAN_CV.pdf");
-  </script>
 </head>
 
 <body>
@@ -23,20 +20,34 @@
       <input id="inputSubmit" type="submit" value="❌" disabled></input>
     </form>
     <p id="infoPrompt">ℹ️</p>
+    <div id="scrollMessage">
+      <p id="bas">⬆️</p>
+      <p id="haut">⬇️</p>
+    </div>
   </div>
   <script src="../script/sendMessage.js"></script>
+  <script src="../script/scrollMessage.js"></script>
+  <div id="tuto">
+    <p>✕</p>
+    <div id="content">
+    </div>
+  </div>
+  <script src="../script/tuto.js"></script>
 
   <canvas id="IA"></canvas>
   <script type="module">
     import iaController from '../3d/iaController.js';
 
     const messageTest = [
-      "Bonjour.",
+      "Bonjour !",
       "Je suis une Intelligence Artificielle.",
-      "Actuellement en cours de creation.",
-      "Je ne suis pas en mesure de répondre  a vos questions.",
       "",
-      "Merci pour votre comprehension."
+      "Creee pour repondre a vos questions.",
+      "",
+      "N'Hesitez pas a demander ce que vous/voulez savoir !",
+    ];
+    const messageTest1 = [
+      "test index.php",
     ];
     iaController.drawText(messageTest);
   </script>

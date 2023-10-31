@@ -1,0 +1,158 @@
+html {
+	background-color: #292931;
+	margin: 0;
+	top: 0;
+	padding: 0;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+
+	height: 100%;
+	width: 100%;
+
+	color: white;
+}
+
+canvas {
+	z-index: 0;
+	display: block;
+}
+
+#prompt {
+	position: absolute;
+	bottom: 5%;
+
+	left: 50%;
+	transform: translateX(-50%);
+	background: rgba(255, 255, 0, 0.05);
+	backdrop-filter: blur(10px);
+	display: flex;
+	border-radius: 10px;
+	align-items: center;
+	justify-content: space-between;
+	width: 55%;
+	height: 50px;
+}
+
+#formPrompt {
+	height: 100%;
+	width: 100%;
+	display: flex;	
+}
+
+#prompt input[type="text"] {
+	background: none;
+	border: none;
+	color: yellow;
+	text-align: center;
+	font-size: 16px;
+	width: 90%;
+	outline: none;
+}
+
+#prompt input[type="submit"] {	
+	background: none;
+	border: none;
+	color: white;
+	text-transform: uppercase;
+	font-size: 30px;
+	cursor: pointer;
+	outline: none;
+	width: 10%;
+	min-width: 50px;
+	height: 100%;
+	border-radius: 10px;
+  	transition: font-size 0.5s, opacity 0.5s;
+}
+
+#prompt input[type="submit"]:disabled {
+    cursor: default;
+}
+
+#prompt input[type="submit"]:hover:enabled {
+    font-size: 33px;
+    cursor: cell;
+}
+
+#infoPrompt {
+	width: auto;
+	z-index: 100;
+	visibility: visible;
+	position: absolute;
+	display: block;
+	font-size: 30px;
+	width: 35px;
+	height: 40px;
+	left: -50px;
+	cursor: help;
+	transition: opacity .5s;
+	opacity: .5;
+}
+
+#infoPrompt:hover {
+	opacity: 1;
+}
+
+
+#scrollMessage {
+	position: absolute;
+	right: -5%;
+	width: auto;
+	height: auto;
+}
+
+#scrollMessage p {
+	margin: 0;
+	padding: 0;
+	font-size: 24px;
+}
+
+#scrollMessage p:nth-child(1) {
+	cursor: n-resize;
+}
+
+#scrollMessage p:nth-child(2) {
+	cursor: s-resize;
+}
+
+#haut, #bas {
+	transition: opacity .25s;
+}
+
+#haut:hover, #bas:hover {
+	text-shadow: 0px 0px 1px rgba(255, 255, 255, 1);
+}
+
+#tuto {
+	color: yellow;
+	height: auto;
+	width: 250px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	position: absolute;
+	background: rgba(255, 255, 0, 0.01);
+	backdrop-filter: blur(15px);
+	border-radius: 5px;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+	z-index: 100;
+	cursor: default;
+}
+
+#tuto.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#tuto p {
+	cursor: pointer;
+	width: 100%;
+	text-align: right;
+}

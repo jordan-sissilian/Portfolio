@@ -1,6 +1,6 @@
+
 class ParticleSystem {
     constructor() {
-        this.particleGeometry = new THREE.BufferGeometry();
         this.particles = 20000;
         this.positions = new Float32Array(this.particles * 3);
         this.colors = new Float32Array(this.particles * 3);
@@ -19,9 +19,9 @@ class ParticleSystem {
             this.positions[i * 3 + 1] = y;
             this.positions[i * 3 + 2] = z;
 
-            this.colors[i * 3] = 0xf;
-            this.colors[i * 3 + 1] = 0xf;
-            this.colors[i * 3 + 2] = 0xf;
+            this.colors[i * 3 + 0] = 0xff;
+            this.colors[i * 3 + 1] = 0xff;
+            this.colors[i * 3 + 2] = 0x00;
         }
 
         this.particleGeometry = new THREE.BufferGeometry();
@@ -47,8 +47,7 @@ class ParticleSystem {
         }
 
         const particleLettre = mixArray(this.createParticlesForLetter(letter, numParticles));
-        const duration = 3;
-        const originalPositions = this.positions.slice();
+        const duration = 1.5;
 
         const indices = mixArray(Array.from({ length: this.particles }, (_, i) => i));
         const selectedIndices = (indices.slice(0, numParticles));
@@ -56,7 +55,7 @@ class ParticleSystem {
             if (!this.isMoved[index]) {
                 this.isMoved[index] = true;
 
-                const delay = i * 50;
+                const delay = i * 20;
                 const tween = new TWEEN.Tween({ x: this.positions[index * 3], y: this.positions[index * 3 + 1], z: this.positions[index * 3 + 2] })
                     .to({ x: targetPosition.x, y: targetPosition.y, z: targetPosition.z }, duration * 1000)
                     .onUpdate((object) => {
@@ -71,37 +70,35 @@ class ParticleSystem {
                 }, delay);
             }
         });
-
-        setTimeout(() => {
-            this.moveParticlesToBase(selectedIndices, originalPositions);
-        }, 30 * 1000);
-        this.particleGeometry.attributes.position.needsUpdate = true;
     }
 
-    moveParticlesToBase(selectedIndices, originalPositions) {
-        selectedIndices.forEach((index) => {
+    deleteAllParticleText() {
+        for (let index = 0; index < this.isMoved.length; index++) {
             if (this.isMoved[index]) {
-                this.isMoved[index] = false;
-                const originalPosition = originalPositions.slice(index * 3, index * 3 + 3);
-                this.positions.set(originalPosition, index * 3);
+                const targetY = this.positions[index * 3 + 1] - 50;
+                
+                const moveTween = new TWEEN.Tween({ y: this.positions[index * 3 + 1] })
+                .to({ y: targetY }, 1000)
+                .onUpdate((object) => {
+                    this.positions[index * 3 + 1] = object.y;
+                })
+                moveTween.start();
             }
-        });
+        }
     }
 
     createParticlesForLetter(letter) {
         letter = alphabetPixel[letter];
         const particles = [];
 
-        for (let row = 0; row < letter.length; row++) {
-            for (let col = 0; col < letter[row].length; col++) {
+        for (let row = 0; row < letter.length; row++)
+            for (let col = 0; col < letter[row].length; col++)
                 if (letter[row][col] === 1)
                     particles.push({
                         x: col * (.2),
                         y: -row * (.2),
                         z: 0
                     });
-            }
-        }
         return (particles);
     }
 }
